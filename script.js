@@ -5,11 +5,13 @@ const pop = document.querySelector('.pop');
 
 
 
-function Book(title, author, pages, read) {
-    this.title = title,
-    this.author = author,
-    this.pages = pages,
-    this.read = "not read"
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title,
+        this.author = author,
+        this.pages = pages,
+        this.read = "not read"
+    }
 }
 
 
@@ -144,7 +146,7 @@ function addBookToLibrary() {
         removeBtn.setAttribute('class', 'remove');
         removeBtn.textContent = "Remove";
         removeBtn.addEventListener('click', (e) => {
-            targetToRemove = e.target;
+            let targetToRemove = e.target;
             let toRemove = document.getElementById(targetToRemove.parentElement.id);
             toRemove.remove();
         })
